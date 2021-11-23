@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PerlinNoise : MonoBehaviour
 {
-    public int terrain_depth = 10;
-    public int terrain_width = 256;
-    public int terrain_height = 256;
+    public int terrain_depth = 20;
+    public int terrain_width = 1000;
+    public int terrain_height = 1000;
     public float terrain_scale = 10f;
     public float terrain_offset_x = 10f;
     public float terrain_offset_y = 10f;
@@ -27,6 +27,7 @@ public class PerlinNoise : MonoBehaviour
         data.heightmapResolution = terrain_width + 1;
         data.size = new Vector3(terrain_width, terrain_depth, terrain_height);
         data.SetHeights(0, 0, GenerateHeights());
+
         return data;
     }
 
@@ -48,5 +49,6 @@ public class PerlinNoise : MonoBehaviour
         float xCoordinate = ((float)x / terrain_width) * terrain_scale + terrain_offset_x;
         float yCoordinate = ((float)y / terrain_height) * terrain_scale + terrain_offset_y;
         return Mathf.PerlinNoise(xCoordinate, yCoordinate);
+    
     }
 }
