@@ -47,18 +47,21 @@ public class PlayerMovement : MonoBehaviour
         // Vector for player movement
         Vector3 move = transform.right * x + transform.forward * z;
 
-        // If player is sprinting
+        // If player is pressing shift
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            // Sprint
             isSprinting = true;
         }
         else
         {
+            // Don't sprint
             isSprinting = false;
         }
 
         if (isSprinting == true)
         {
+            // Increase player movement speed by multiplier
             move *= sprintingMultiplier;
         }
 
