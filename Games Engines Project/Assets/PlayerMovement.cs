@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -22f;
     public float jumpHeight = 6f;
 
+    public bool isSprinting = false;
+    public float sprintingMultiplier = 1.5f;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -43,6 +46,21 @@ public class PlayerMovement : MonoBehaviour
 
         // Vector for player movement
         Vector3 move = transform.right * x + transform.forward * z;
+
+        // If player is sprinting
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+        }
+        else
+        {
+            isSprinting = false;
+        }
+
+        if (isSprinting == true)
+        {
+            move *= sprintingMultiplier;
+        }
 
         // Move player with character controller
         controller.Move(move * speed * Time.deltaTime);
