@@ -15,21 +15,17 @@ public class EnemyBehaviour : MonoBehaviour
     public float bulletSpeed = 30f;
     public float lifeTime = 3f;
 
-
-    public CharacterController controller;
-    Vector3 velocity;
-    public float gravity = -22f;
-
-    // Patrolling
+    //Patrolling
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
 
-    // Attacking
-    public float timeBetweenAttaks;
+    //Attacking
+    public float timeBetweenAttacks;
     bool alreadyAttacked;
+    public GameObject projectile;
 
-    // States
+    //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
@@ -41,21 +37,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Update()
     {
-        // Check for sight and attack range
+        //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
-
-        // Apply gravity to player
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
     }
 
     private void Patrolling()
     {
+        Debug.Log("PATROLLING");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -63,14 +56,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Walkpoint reached
+        //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
-
     private void SearchWalkPoint()
     {
-        // Calculate random point in range
+        //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -82,12 +74,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Debug.Log("CHASING");
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
-        // Make sure enemy doesn't move
+        Debug.Log("ATTACKING");
+        //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -113,10 +107,10 @@ public class EnemyBehaviour : MonoBehaviour
 
             // Start Coroutine
             StartCoroutine(DestroyBulletAfterTime(bullet, lifeTime));
-        }
 
-        alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttaks);
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
     }
 
     // Coroutine for destroying bullets after specified time
@@ -126,7 +120,7 @@ public class EnemyBehaviour : MonoBehaviour
         Destroy(bullet);
     }
 
-private void ResetAttack()
+    private void ResetAttack()
     {
         alreadyAttacked = false;
     }
@@ -135,10 +129,8 @@ private void ResetAttack()
     {
         health -= damage;
 
-        if (health <= 0)
-            Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
-
     private void DestroyEnemy()
     {
         Destroy(gameObject);

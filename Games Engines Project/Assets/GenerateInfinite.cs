@@ -32,6 +32,8 @@ public class GenerateInfinite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(GenerateNavMesh(surface));
+
         this.gameObject.transform.position = Vector3.zero;
         startPos = Vector3.zero;
 
@@ -50,9 +52,6 @@ public class GenerateInfinite : MonoBehaviour
                 tiles.Add(tilename, tile);
             }
         }
-
-        // Update Navmesh
-        surface.BuildNavMesh();
     }
 
     // Update is called once per frame
@@ -113,5 +112,12 @@ public class GenerateInfinite : MonoBehaviour
 
             startPos = player.transform.position;
         }
+    }
+
+    //Coroutine for building navmesh every 5 seconds
+    private IEnumerator GenerateNavMesh(NavMeshSurface surface)
+    {
+        yield return new WaitForSeconds(2);
+        surface.BuildNavMesh();
     }
 }

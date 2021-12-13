@@ -1024,7 +1024,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664206478}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 26.45, y: 10, z: 6.8}
+  m_LocalPosition: {x: 26.45, y: 17.96, z: 6.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 566536174}
@@ -1048,7 +1048,7 @@ MonoBehaviour:
   player: {fileID: 1818046147}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4294967295
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1057,11 +1057,10 @@ MonoBehaviour:
   bullet_spawn: {fileID: 2076501923}
   bulletSpeed: 30
   lifeTime: 3
-  controller: {fileID: 1664206485}
-  gravity: -22
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  timeBetweenAttaks: 0.5
+  walkPointRange: 20
+  timeBetweenAttacks: 0
+  projectile: {fileID: 0}
   sightRange: 20
   attackRange: 12
   playerInSightRange: 0
