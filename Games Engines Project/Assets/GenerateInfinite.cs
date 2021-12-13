@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 class Tile
-{
+{ 
     public GameObject theTile;
     public float creationTime;
 
@@ -18,6 +19,7 @@ public class GenerateInfinite : MonoBehaviour
 {
     public GameObject plane;
     public GameObject player;
+    public NavMeshSurface surface;
 
     int planeSize = 10;
     int halfTilesX = 10;
@@ -48,6 +50,9 @@ public class GenerateInfinite : MonoBehaviour
                 tiles.Add(tilename, tile);
             }
         }
+
+        // Update Navmesh
+        surface.BuildNavMesh();
     }
 
     // Update is called once per frame
