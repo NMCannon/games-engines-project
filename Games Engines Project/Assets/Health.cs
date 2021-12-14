@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 500;
     public int currentHealth;
+
+    public HealthBar healthBar;
 
 
     // Start is called before the first frame update
@@ -17,6 +19,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+
+        healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
         {

@@ -10,10 +10,18 @@ public class BulletBehaviour : MonoBehaviour
         // Print hit object's name
         print("hit " + other.name + "!");
 
-        if (other.name == "fpsPlayer" || other.name == "Enemy")
+        if (other.name == "fpsPlayer")
         {
             var healthComponent = other.GetComponent<Health>();
             if(healthComponent != null)
+            {
+                healthComponent.TakeDamage(10);
+            }
+        }
+        else if (other.name == "Enemy")
+        {
+            var healthComponent = other.GetComponent<EnemyHealth>();
+            if (healthComponent != null)
             {
                 healthComponent.TakeDamage(10);
             }
