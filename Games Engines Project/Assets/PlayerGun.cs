@@ -9,6 +9,7 @@ public class PlayerGun : MonoBehaviour
     public Transform bullet_spawn;
     public float bulletSpeed = 30f;
     public float lifeTime = 3f;
+    public Transform playerBody;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class PlayerGun : MonoBehaviour
 
         // Ignore collision with player's gun (parent)
         Physics.IgnoreCollision(bullet.GetComponent<Collider>(), bullet_spawn.parent.GetComponent<Collider>());
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), playerBody.GetComponent<Collider>());
 
         // Spawn bullet at bullet spawn position
         bullet.transform.position = bullet_spawn.position;

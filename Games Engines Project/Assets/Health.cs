@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
 
     public HealthBar healthBar;
 
+    public GameOverScreen GameOverScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Health : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Destroy(gameObject);
+            GameOverScreen.Setup();
         }
     }
 }
