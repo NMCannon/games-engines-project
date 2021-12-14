@@ -117,7 +117,11 @@ public class GenerateInfinite : MonoBehaviour
     //Coroutine for building navmesh every 5 seconds
     private IEnumerator GenerateNavMesh(NavMeshSurface surface)
     {
-        yield return new WaitForSeconds(2);
-        surface.BuildNavMesh();
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            surface.BuildNavMesh();
+            yield return new WaitForSeconds(5);
+        }
     }
 }

@@ -8,7 +8,7 @@ public class BulletBehaviour : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Print hit object's name
-        print("hit " + other.name + "!");
+        //print("hit " + other.name + "!");
 
         if (other.name == "fpsPlayer")
         {
@@ -18,7 +18,7 @@ public class BulletBehaviour : MonoBehaviour
                 healthComponent.TakeDamage(10);
             }
         }
-        else if (other.name == "Enemy")
+        else if (other.name == "Enemy" || other.name == "Enemy(Clone)")
         {
             var healthComponent = other.GetComponent<EnemyHealth>();
             if (healthComponent != null)
