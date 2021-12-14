@@ -11,8 +11,8 @@ public class EnemyBehaviour : MonoBehaviour
     public float health;
 
     public GameObject bulletPrefab;
-    public Transform bullet_spawn;
-    public float bulletSpeed = 30f;
+    public Transform enemy_gun;
+    public float bulletSpeed = 10f;
     public float lifeTime = 3f;
 
     //Patrolling
@@ -48,7 +48,6 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void Patrolling()
     {
-        Debug.Log("PATROLLING");
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -74,13 +73,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void ChasePlayer()
     {
-        Debug.Log("CHASING");
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
-        Debug.Log("ATTACKING");
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
@@ -93,8 +90,11 @@ public class EnemyBehaviour : MonoBehaviour
             // Instatiate bullet
             GameObject bullet = Instantiate(bulletPrefab);
 
+            // Ignore collision with player's gun (parent)
+            Physics.IgnoreCollision(bullet.GetComponent<Collider>(), enemy_gun.parent.GetComponent<Collider>());
+
             // Spawn bullet at bullet spawn position
-            bullet.transform.position = bullet_spawn.position;
+            bullet.transform.position = enemy_gun.position;
 
             // Convert quaternion roation to vector3
             Vector3 rotation = bullet.transform.rotation.eulerAngles;
@@ -103,7 +103,7 @@ public class EnemyBehaviour : MonoBehaviour
             bullet.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
 
             // Project the bullet
-            bullet.GetComponent<Rigidbody>().AddForce(bullet_spawn.forward * bulletSpeed, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce(enemy_gun.forward * bulletSpeed, ForceMode.Impulse);
 
             // Start Coroutine
             StartCoroutine(DestroyBulletAfterTime(bullet, lifeTime));
