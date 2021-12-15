@@ -4343,7 +4343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86053aa7a3e587e4094970a38c228914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 476966101903347336, guid: d4378cea544c0c0429200bfddcf95da5, type: 3}
+  bulletPrefab: {fileID: 3952197090521484979, guid: 86f379c794f6ee246aa355723dc6f551, type: 3}
   bullet_spawn: {fileID: 971237565}
   bulletSpeed: 60
   lifeTime: 3
@@ -4752,6 +4752,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1818046147}
+    - target: {fileID: 8951240702949848514, guid: 057d991943f6e9b42adb3a78ae091cf5, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 3952197090521484979, guid: 86f379c794f6ee246aa355723dc6f551, type: 3}
     - target: {fileID: 8951240702949848517, guid: 057d991943f6e9b42adb3a78ae091cf5, type: 3}
       propertyPath: m_RootOrder
       value: 4
