@@ -8,6 +8,9 @@ public class EnemyHealth : MonoBehaviour
     public int currentHealth;
 
     public EnemyHealthBar healthBar;
+    public GenerateEnemies enemyManager;
+
+    [SerializeField] ScoreScript scoreScript;
 
 
     // Start is called before the first frame update
@@ -22,14 +25,13 @@ public class EnemyHealth : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
 
-        GameObject enemyManager = GameObject.Find("EnemyManager");
-        GenerateEnemies generateEnemies = enemyManager.GetComponent<GenerateEnemies>();
-
         if (currentHealth <= 0)
         {
-            generateEnemies.EnemyDeath();
-            Debug.Log("ENEMY COUNT: " + generateEnemies.enemyCount);
             Destroy(gameObject);
+            //yield return new WaitForSeconds(1);
+            scoreScript.AddPoint();
+            enemyManager.EnemyDeath();
+            Debug.Log("ENEMY COUNT: " + enemyManager.enemyCount);
         }
     }
 }

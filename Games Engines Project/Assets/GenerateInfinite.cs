@@ -119,9 +119,9 @@ public class GenerateInfinite : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             surface.BuildNavMesh();
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(20);
         }
     }
 }

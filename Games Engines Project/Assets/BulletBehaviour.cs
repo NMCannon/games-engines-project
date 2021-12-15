@@ -23,7 +23,7 @@ public class BulletBehaviour : MonoBehaviour
             var healthComponent = other.GetComponent<EnemyHealth>();
             if (healthComponent != null)
             {
-                healthComponent.TakeDamage(10);
+                healthComponent.TakeDamage(100);
             }
         }
 

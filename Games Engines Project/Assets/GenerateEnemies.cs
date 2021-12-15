@@ -29,16 +29,15 @@ public class GenerateEnemies : MonoBehaviour
         {
             while (enemyCount < 10)
             {
-                xPos = player.position.x + Random.Range(20, 60);
-                zPos = player.position.z + Random.Range(20, 60);
+                xPos = player.position.x + Random.Range(-60, 60);
+                zPos = player.position.z + Random.Range(-60, 60);
                 Instantiate(theEnemy, new Vector3(xPos, yPos, zPos), Quaternion.identity);
-                yield return new WaitForSeconds(0.2f);
                 enemyCount += 1;
                 Debug.Log("SPAWNED ENEMY");
                 Debug.Log("ENEMY COUNT: " + enemyCount);
             }
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
         }
 
     }
