@@ -25,8 +25,10 @@ public class GenerateInfinite : MonoBehaviour
     int halfTilesX = 10;
     int halfTilesZ = 10;
 
+    // For player location
     Vector3 startPos;
 
+    // Hashtable to keep track of all tiles
     Hashtable tiles = new Hashtable();
 
     // Start is called before the first frame update

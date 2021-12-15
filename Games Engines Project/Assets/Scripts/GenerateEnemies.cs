@@ -20,25 +20,31 @@ public class GenerateEnemies : MonoBehaviour
 
     public void EnemyDeath()
     {
+        // Lower enemy count
         enemyCount -= 1;
     }
 
     IEnumerator EnemyDrop()
     {
+        // Keep looping
         while(true)
         {
+            // While less than 10 enemies
             while (enemyCount < 10)
             {
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
+                // Get random x and z positions close to player
                 xPos = player.position.x + Random.Range(-40, 40);
                 zPos = player.position.z + Random.Range(-40, 40);
+                // Create new enemy at those positions
                 Instantiate(theEnemy, new Vector3(xPos, yPos, zPos), Quaternion.identity);
+                // Increase enemy count
                 enemyCount += 1;
                 Debug.Log("SPAWNED ENEMY");
                 Debug.Log("ENEMY COUNT: " + enemyCount);
             }
-
-            yield return new WaitForSeconds(10);
+            // Wait 8 seconds before checking
+            yield return new WaitForSeconds(8);
         }
 
     }

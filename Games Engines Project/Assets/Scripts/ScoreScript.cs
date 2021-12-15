@@ -13,18 +13,24 @@ public class ScoreScript : MonoBehaviour
 
     void Start()
     {
+        // Get text component
         scoreText = GetComponent<Text>();
     }
 
 
     public void AddPoint()
     {
+        // Add 1 to score
         scoreValue += 1;
+        // Update UI
         scoreText.text = "SCORE: " + scoreValue;
 
+        // If score over 20
         if (scoreValue >= 20)
         {
+            // Play win audio
             FindObjectOfType<AudioManager>().Play("PlayerWin");
+            // Show win menu
             winMenu.Setup();
         }
     }

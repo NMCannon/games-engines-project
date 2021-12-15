@@ -40,23 +40,47 @@ public class EnemyBehaviour : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        // If agent can't see player or attack, patrol
+        if (!playerInSightRange && !playerInAttackRange)
+        {
+            Patrolling();
+        }
+
+        // If agent can see player but can't attack, chase player
+        if (playerInSightRange && !playerInAttackRange)
+        {
+            ChasePlayer();
+        }
+        // If agent can see player and can attack, attack player
+        if (playerInAttackRange && playerInSightRange)
+        {
+            AttackPlayer();
+        }
     }
+
 
     private void Patrolling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        // If no walk point set, find one
+        if (!walkPointSet)
+        {
+            SearchWalkPoint();
+        }
 
+        // Else go to walk point
         if (walkPointSet)
+        {
             agent.SetDestination(walkPoint);
+        }
 
+        // Get distance to walk point
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
+        {
             walkPointSet = false;
+        }
     }
     private void SearchWalkPoint()
     {
@@ -64,10 +88,14 @@ public class EnemyBehaviour : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
+        // Create random walk point
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
+        // Check if walk point is on the ground
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        {
             walkPointSet = true;
+        }
     }
 
     private void ChasePlayer()
@@ -80,6 +108,7 @@ public class EnemyBehaviour : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
+        // Face player
         transform.LookAt(player);
 
         if (!alreadyAttacked)
@@ -124,6 +153,7 @@ public class EnemyBehaviour : MonoBehaviour
         alreadyAttacked = false;
     }
 
+    // Gizmos for enemy chase and attack radius
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
