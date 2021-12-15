@@ -42,7 +42,6 @@ Launch the Evolution.exe file located in the builds folder of the project.
 | NavMeshModifier.cs | |
 | NavMeshModifierVolume.cs | |
 | NavMeshSurface.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
-
 | Health-Bar | From [https://weeklyhow.com/downloads/03-06-20/Health-Bar.png]() |
 | menu_image 1 | From [https://in.pinterest.com/pin/157696424426592392/]() |
 | 8-Bit Style Sound Effects | From [https://assetstore.unity.com/packages/audio/sound-fx/8-bit-style-sound-effects-68228]() |
