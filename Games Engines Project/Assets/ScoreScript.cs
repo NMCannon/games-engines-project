@@ -24,6 +24,7 @@ public class ScoreScript : MonoBehaviour
 
         if (scoreValue >= 20)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerWin");
             winMenu.Setup();
         }
     }

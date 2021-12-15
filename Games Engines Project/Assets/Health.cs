@@ -19,12 +19,14 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        FindObjectOfType<AudioManager>().Play("PlayerHurt");
         currentHealth -= amount;
 
         healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
             GameOverScreen.Setup();
         }
     }

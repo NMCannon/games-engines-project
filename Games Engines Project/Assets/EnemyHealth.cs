@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("EnemyDeath");
             Destroy(gameObject);
             //yield return new WaitForSeconds(1);
             scoreScript.AddPoint();
