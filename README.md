@@ -38,9 +38,9 @@ Launch the Evolution.exe file located in the builds folder of the project.
 | GenerateEnemies.cs | Self written |
 | AudioManager.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link is not working)|
 | Sound.cs | Self written ||
-| NavMeshLink.cs |
-| NavMeshModifier.cs |
-| NavMeshModifierVolume.cs |
+| NavMeshLink.cs | |
+| NavMeshModifier.cs | |
+| NavMeshModifierVolume.cs | |
 | NavMeshSurface.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
 
 | Health-Bar | From [https://weeklyhow.com/downloads/03-06-20/Health-Bar.png]() |
