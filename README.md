@@ -12,9 +12,6 @@ Evolution is a first person shooter. It is set in an infinite procedural world, 
 # Instructions for use
 Launch the Evolution.exe file located in the builds folder of the project.
 
-# How it works
-
-
 # List of classes/assets in the project and whether made yourself or modified or if its from a source, please give the reference
 
 | Class/asset | Source |
@@ -29,18 +26,18 @@ Launch the Evolution.exe file located in the builds folder of the project.
 | Health.cs | Self written |
 | HealthBar.cs | Self written |
 | MouseLook.cs | Self written |
-| EnemyBehaviour.cs | Modified from [https://www.mediafire.com/file/n58m8is65cto3it/EnemyAiTutorial.cs/file]() |
 | EnemyHealth.cs | Self written |
 | EnemyHealthBar.cs | Self written |
 | GenerateInfinite.cs | Self written |
 | GenerateTerrain.cs | Self written |
 | ScoreScript.cs | Self written |
 | GenerateEnemies.cs | Self written |
-| AudioManager.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link is not working)|
-| Sound.cs | Self written ||
-| NavMeshLink.cs | |
-| NavMeshModifier.cs | |
-| NavMeshModifierVolume.cs | |
+| EnemyBehaviour.cs | Modified from [https://www.mediafire.com/file/n58m8is65cto3it/EnemyAiTutorial.cs/file]() |
+| AudioManager.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link to code is dead)|
+| Sound.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link to code is dead)|
+| NavMeshLink.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
+| NavMeshModifier.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
+| NavMeshModifierVolume.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
 | NavMeshSurface.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
 | Health-Bar | From [https://weeklyhow.com/downloads/03-06-20/Health-Bar.png]() |
 | menu_image 1 | From [https://in.pinterest.com/pin/157696424426592392/]() |
@@ -49,4 +46,4 @@ Launch the Evolution.exe file located in the builds folder of the project.
 
 # What I am most proud of in the assignment
 
-I am most proud of the infinite terrain generation in this assignment. 
+I am most proud of the terrain generation in this assignment. Trying to make the terrain infinite was very challenging and quite frustrating at times. However I think this really helped give me a good introduction into terrain manipulation with Unity.
