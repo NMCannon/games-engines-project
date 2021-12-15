@@ -12,9 +12,6 @@ Evolution is a first person shooter. It is set in an infinite procedural world, 
 # Instructions for use
 Launch the Evolution.exe file located in the builds folder of the project.
 
-# How it works
-
-
 # List of classes/assets in the project and whether made yourself or modified or if its from a source, please give the reference
 
 | Class/asset | Source |
@@ -49,4 +46,4 @@ Launch the Evolution.exe file located in the builds folder of the project.
 
 # What I am most proud of in the assignment
 
-I am most proud of the infinite terrain generation in this assignment. 
+I am most proud of the terrain generation in this assignment. Trying to make the terrain infinite was very challenging and quite frustrating at times. However I think this really helped give me a good introduction into terrain manipulation with Unity.
