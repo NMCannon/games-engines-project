@@ -26,18 +26,18 @@ Launch the Evolution.exe file located in the builds folder of the project.
 | Health.cs | Self written |
 | HealthBar.cs | Self written |
 | MouseLook.cs | Self written |
-| EnemyBehaviour.cs | Modified from [https://www.mediafire.com/file/n58m8is65cto3it/EnemyAiTutorial.cs/file]() |
 | EnemyHealth.cs | Self written |
 | EnemyHealthBar.cs | Self written |
 | GenerateInfinite.cs | Self written |
 | GenerateTerrain.cs | Self written |
 | ScoreScript.cs | Self written |
 | GenerateEnemies.cs | Self written |
-| AudioManager.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link is not working)|
-| Sound.cs | Self written ||
-| NavMeshLink.cs | |
-| NavMeshModifier.cs | |
-| NavMeshModifierVolume.cs | |
+| EnemyBehaviour.cs | Modified from [https://www.mediafire.com/file/n58m8is65cto3it/EnemyAiTutorial.cs/file]() |
+| AudioManager.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link to code is dead)|
+| Sound.cs | Modified from [https://www.youtube.com/c/Brackeys]() (Original link to code is dead)|
+| NavMeshLink.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
+| NavMeshModifier.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
+| NavMeshModifierVolume.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
 | NavMeshSurface.cs | From [https://github.com/Brackeys/NavMesh-Tutorial/tree/master/NavMesh%20Example%20Project/Assets/NavMeshComponents/Scripts]() |
 | Health-Bar | From [https://weeklyhow.com/downloads/03-06-20/Health-Bar.png]() |
 | menu_image 1 | From [https://in.pinterest.com/pin/157696424426592392/]() |
