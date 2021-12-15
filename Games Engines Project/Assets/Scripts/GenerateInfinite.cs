@@ -6,6 +6,7 @@ using UnityEngine.AI;
 class Tile
 { 
     public GameObject theTile;
+    // Track tile creation time
     public float creationTime;
 
     public Tile(GameObject t, float ct)
@@ -34,13 +35,17 @@ public class GenerateInfinite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Generate NavMesh
         StartCoroutine(GenerateNavMesh(surface));
+
 
         this.gameObject.transform.position = Vector3.zero;
         startPos = Vector3.zero;
 
+        // Get time for tile creation
         float updateTime = Time.realtimeSinceStartup;
 
+        // Generate tiles
         for(int x = -halfTilesX; x < halfTilesX; x++)
         {
             for(int z = -halfTilesZ; z < halfTilesZ; z++)
@@ -59,26 +64,32 @@ public class GenerateInfinite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Determine how far the player has moved since last terrain update
+        // Find how far the player has moved since last terrain update
         int xMove = (int)(player.transform.position.x - startPos.x);
         int zMove = (int)(player.transform.position.z - startPos.z);
 
+        // If player has moved more than one plane size
         if(Mathf.Abs(xMove) >= planeSize || Mathf.Abs(zMove) >= planeSize)
         {
+            // Get time of new tile creation
             float updateTime = Time.realtimeSinceStartup;
 
-            // Force the integer position and round to nearest tilesize
+            // Force integer position and round to nearest tilesize
             int playerX = (int)(Mathf.Floor(player.transform.position.x / planeSize) * planeSize);
             int playerZ = (int)(Mathf.Floor(player.transform.position.z / planeSize) * planeSize);
 
+            // Generate new tiles
             for(int x = -halfTilesX; x < halfTilesX; x++)
             {
                 for(int z = -halfTilesZ; z < halfTilesZ; z++)
                 {
+                    // Make tiles around the player
                     Vector3 pos = new Vector3((x * planeSize + playerX), 0, (z * planeSize + playerZ));
 
+                    // Create tilename
                     string tilename = "Tile_" + ((int)(pos.x)).ToString() + "_" + ((int)(pos.z)).ToString();
 
+                    // If tile hasn't been made before, make it
                     if(!tiles.ContainsKey(tilename))
                     {
                         GameObject t = (GameObject)Instantiate(plane, pos, Quaternion.identity);
@@ -86,6 +97,7 @@ public class GenerateInfinite : MonoBehaviour
                         Tile tile = new Tile(t, updateTime);
                         tiles.Add(tilename, tile);
                     }
+                    // Else tile already exists in the array, update its time
                     else
                     {
                         (tiles[tilename] as Tile).creationTime = updateTime;
@@ -119,10 +131,13 @@ public class GenerateInfinite : MonoBehaviour
     //Coroutine for building navmesh every 5 seconds
     private IEnumerator GenerateNavMesh(NavMeshSurface surface)
     {
+        // Keep looping
         while (true)
         {
             yield return new WaitForSeconds(1);
+            // Build NavMesh
             surface.BuildNavMesh();
+            // Wait 20 seconds before building again
             yield return new WaitForSeconds(20);
         }
     }
